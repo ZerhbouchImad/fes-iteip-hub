@@ -9,38 +9,224 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as FilieresRouteImport } from './routes/filieres'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardUtilisateursRouteImport } from './routes/dashboard.utilisateurs'
+import { Route as DashboardProfilRouteImport } from './routes/dashboard.profil'
+import { Route as DashboardPresencesRouteImport } from './routes/dashboard.presences'
+import { Route as DashboardNotesRouteImport } from './routes/dashboard.notes'
+import { Route as DashboardModulesRouteImport } from './routes/dashboard.modules'
+import { Route as DashboardEtudiantsRouteImport } from './routes/dashboard.etudiants'
 
+const FilieresRoute = FilieresRouteImport.update({
+  id: '/filieres',
+  path: '/filieres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardUtilisateursRoute = DashboardUtilisateursRouteImport.update({
+  id: '/utilisateurs',
+  path: '/utilisateurs',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardProfilRoute = DashboardProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardPresencesRoute = DashboardPresencesRouteImport.update({
+  id: '/presences',
+  path: '/presences',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardNotesRoute = DashboardNotesRouteImport.update({
+  id: '/notes',
+  path: '/notes',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardModulesRoute = DashboardModulesRouteImport.update({
+  id: '/modules',
+  path: '/modules',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardEtudiantsRoute = DashboardEtudiantsRouteImport.update({
+  id: '/etudiants',
+  path: '/etudiants',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/filieres': typeof FilieresRoute
+  '/dashboard/etudiants': typeof DashboardEtudiantsRoute
+  '/dashboard/modules': typeof DashboardModulesRoute
+  '/dashboard/notes': typeof DashboardNotesRoute
+  '/dashboard/presences': typeof DashboardPresencesRoute
+  '/dashboard/profil': typeof DashboardProfilRoute
+  '/dashboard/utilisateurs': typeof DashboardUtilisateursRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/filieres': typeof FilieresRoute
+  '/dashboard/etudiants': typeof DashboardEtudiantsRoute
+  '/dashboard/modules': typeof DashboardModulesRoute
+  '/dashboard/notes': typeof DashboardNotesRoute
+  '/dashboard/presences': typeof DashboardPresencesRoute
+  '/dashboard/profil': typeof DashboardProfilRoute
+  '/dashboard/utilisateurs': typeof DashboardUtilisateursRoute
+  '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/filieres': typeof FilieresRoute
+  '/dashboard/etudiants': typeof DashboardEtudiantsRoute
+  '/dashboard/modules': typeof DashboardModulesRoute
+  '/dashboard/notes': typeof DashboardNotesRoute
+  '/dashboard/presences': typeof DashboardPresencesRoute
+  '/dashboard/profil': typeof DashboardProfilRoute
+  '/dashboard/utilisateurs': typeof DashboardUtilisateursRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/contact'
+    | '/dashboard'
+    | '/filieres'
+    | '/dashboard/etudiants'
+    | '/dashboard/modules'
+    | '/dashboard/notes'
+    | '/dashboard/presences'
+    | '/dashboard/profil'
+    | '/dashboard/utilisateurs'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/contact'
+    | '/filieres'
+    | '/dashboard/etudiants'
+    | '/dashboard/modules'
+    | '/dashboard/notes'
+    | '/dashboard/presences'
+    | '/dashboard/profil'
+    | '/dashboard/utilisateurs'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/contact'
+    | '/dashboard'
+    | '/filieres'
+    | '/dashboard/etudiants'
+    | '/dashboard/modules'
+    | '/dashboard/notes'
+    | '/dashboard/presences'
+    | '/dashboard/profil'
+    | '/dashboard/utilisateurs'
+    | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AuthRoute: typeof AuthRoute
+  ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
+  FilieresRoute: typeof FilieresRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/filieres': {
+      id: '/filieres'
+      path: '/filieres'
+      fullPath: '/filieres'
+      preLoaderRoute: typeof FilieresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,21 +234,90 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/utilisateurs': {
+      id: '/dashboard/utilisateurs'
+      path: '/utilisateurs'
+      fullPath: '/dashboard/utilisateurs'
+      preLoaderRoute: typeof DashboardUtilisateursRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/profil': {
+      id: '/dashboard/profil'
+      path: '/profil'
+      fullPath: '/dashboard/profil'
+      preLoaderRoute: typeof DashboardProfilRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/presences': {
+      id: '/dashboard/presences'
+      path: '/presences'
+      fullPath: '/dashboard/presences'
+      preLoaderRoute: typeof DashboardPresencesRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/notes': {
+      id: '/dashboard/notes'
+      path: '/notes'
+      fullPath: '/dashboard/notes'
+      preLoaderRoute: typeof DashboardNotesRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/modules': {
+      id: '/dashboard/modules'
+      path: '/modules'
+      fullPath: '/dashboard/modules'
+      preLoaderRoute: typeof DashboardModulesRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/etudiants': {
+      id: '/dashboard/etudiants'
+      path: '/etudiants'
+      fullPath: '/dashboard/etudiants'
+      preLoaderRoute: typeof DashboardEtudiantsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
+interface DashboardRouteChildren {
+  DashboardEtudiantsRoute: typeof DashboardEtudiantsRoute
+  DashboardModulesRoute: typeof DashboardModulesRoute
+  DashboardNotesRoute: typeof DashboardNotesRoute
+  DashboardPresencesRoute: typeof DashboardPresencesRoute
+  DashboardProfilRoute: typeof DashboardProfilRoute
+  DashboardUtilisateursRoute: typeof DashboardUtilisateursRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardEtudiantsRoute: DashboardEtudiantsRoute,
+  DashboardModulesRoute: DashboardModulesRoute,
+  DashboardNotesRoute: DashboardNotesRoute,
+  DashboardPresencesRoute: DashboardPresencesRoute,
+  DashboardProfilRoute: DashboardProfilRoute,
+  DashboardUtilisateursRoute: DashboardUtilisateursRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AuthRoute: AuthRoute,
+  ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRouteWithChildren,
+  FilieresRoute: FilieresRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
